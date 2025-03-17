@@ -1,0 +1,43 @@
+// Example using Express and Square Node.js SDK
+const express = require('express');
+const { Client, Environment } = require('square');
+const app = express();
+
+app.use(express.json());
+
+// Initialize Square client
+const squareClient = new Client({
+  environment: Environment.Sandbox, // Use Environment.Production for production
+  accessToken: 'YOUR_SQUARE_ACCESS_TOKEN',
+});
+
+app.post('/create-checkout', async (req, res) => {
+  try {
+    const { lineItems } = req.body;
+    
+    // Create a checkout with Square API
+    const response = await squareClient.checkoutApi.createCheckout(
+      'YOUR_LOCATION_ID',
+      {
+        idempotencyKey: Date.now().toString(),
+        order: {
+          order: {
+            locationId: 'YOUR_LOCATION_ID',
+            lineItems,
+          },
+        },
+        redirectUrl: 'https://your-site.com/order-confirmation',
+      }
+    );
+    
+    // Return the checkout URL to the client
+    res.json({ checkoutUrl: response.result.checkout.checkoutPageUrl });
+  } catch (error) {
+    console.error('Error creating checkout:', error);
+    res.status(500).json({ error: 'Failed to create checkout' });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});

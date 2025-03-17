@@ -1,6 +1,6 @@
 # My HTML Project
 
-This project is a simple HTML webpage that demonstrates the use of continuous integration with GitHub Actions.
+This project is a simple HTML webpage for ecommerce that demonstrates the use of continuous integration with GitHub Actions.
 
 ## Project Structure
 

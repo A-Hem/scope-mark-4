@@ -3,29 +3,342 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My HTML Project</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Simple E-commerce Store</title>
+    <style>
+        :root {
+            --primary-color: #4a154b;
+            --secondary-color: #36c5f0;
+            --accent-color: #e01e5a;
+            --text-color: #333;
+            --background-color: #f8f9fa;
+            --card-background: #ffffff;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .product-card {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #f2f2f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 180px;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-price {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #c01a4a;
+        }
+        
+        .cart-section {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .cart-items {
+            margin-bottom: 1rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-total {
+            font-weight: bold;
+            text-align: right;
+            margin: 1rem 0;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My HTML Project</h1>
+        <h1>Simple E-commerce Store</h1>
     </header>
-    <main>
-        <section>
-            <h2>About This Project</h2>
-            <p>This project is a simple HTML page demonstrating the structure and content of a webpage.</p>
+    
+    <div class="container">
+        <section class="products">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/400/320" alt="Product 1">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Premium Headphones</h3>
+                    <p class="product-price">$99.99</p>
+                    <p class="product-description">High-quality wireless headphones with noise cancellation and premium sound.</p>
+                    <button class="btn add-to-cart" data-id="1" data-name="Premium Headphones" data-price="99.99">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/400/320" alt="Product 2">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Smart Watch</h3>
+                    <p class="product-price">$149.99</p>
+                    <p class="product-description">Feature-rich smartwatch with health tracking, notifications, and long battery life.</p>
+                    <button class="btn add-to-cart" data-id="2" data-name="Smart Watch" data-price="149.99">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/400/320" alt="Product 3">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Bluetooth Speaker</h3>
+                    <p class="product-price">$79.99</p>
+                    <p class="product-description">Portable bluetooth speaker with powerful bass and 24-hour battery life.</p>
+                    <button class="btn add-to-cart" data-id="3" data-name="Bluetooth Speaker" data-price="79.99">Add to Cart</button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="/api/placeholder/400/320" alt="Product 4">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Wireless Charger</h3>
+                    <p class="product-price">$29.99</p>
+                    <p class="product-description">Fast wireless charging pad compatible with all Qi-enabled devices.</p>
+                    <button class="btn add-to-cart" data-id="4" data-name="Wireless Charger" data-price="29.99">Add to Cart</button>
+                </div>
+            </div>
         </section>
-        <section>
-            <h2>Features</h2>
-            <ul>
-                <li>Responsive design</li>
-                <li>Easy to navigate</li>
-                <li>Well-structured content</li>
-            </ul>
+        
+        <section class="cart-section">
+            <h2 class="cart-title">Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be added here -->
+                <p id="empty-cart-message">Your cart is empty.</p>
+            </div>
+            <div class="cart-total" id="cart-total">
+                Total: $0.00
+            </div>
+            <button class="btn" id="checkout-button">Checkout with Square</button>
         </section>
-    </main>
+    </div>
+    
     <footer>
-        <p>&copy; 2023 My HTML Project. All rights reserved.</p>
+        <p>&copy; 2025 Simple E-commerce Store. All rights reserved.</p>
     </footer>
+    
+    <script>
+        // Simple cart implementation
+        let cart = [];
+        let total = 0;
+        
+        // DOM elements
+        const cartItemsElement = document.getElementById('cart-items');
+        const cartTotalElement = document.getElementById('cart-total');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const checkoutButton = document.getElementById('checkout-button');
+        
+        // Add event listeners
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', addToCart);
+        });
+        
+        checkoutButton.addEventListener('click', initiateSquareCheckout);
+        
+        // Cart functions
+        function addToCart(event) {
+            const button = event.target;
+            const id = button.getAttribute('data-id');
+            const name = button.getAttribute('data-name');
+            const price = parseFloat(button.getAttribute('data-price'));
+            
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id,
+                    name,
+                    price,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+        }
+        
+        function updateCart() {
+            // Clear cart display
+            cartItemsElement.innerHTML = '';
+            
+            // Calculate total
+            total = 0;
+            
+            if (cart.length === 0) {
+                cartItemsElement.appendChild(emptyCartMessage);
+                checkoutButton.disabled = true;
+            } else {
+                emptyCartMessage.remove();
+                checkoutButton.disabled = false;
+                
+                // Add items to cart display
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.classList.add('cart-item');
+                    cartItem.innerHTML = `
+                        <span>${item.name} x ${item.quantity}</span>
+                        <span>$${itemTotal.toFixed(2)}</span>
+                    `;
+                    
+                    cartItemsElement.appendChild(cartItem);
+                });
+            }
+            
+            // Update total display
+            cartTotalElement.textContent = `Total: $${total.toFixed(2)}`;
+        }
+        
+        function initiateSquareCheckout() {
+            if (cart.length === 0) return;
+            
+            // Format cart items for Square Checkout
+            const lineItems = cart.map(item => ({
+                name: item.name,
+                quantity: item.quantity.toString(),
+                base_price_money: {
+                    amount: Math.round(item.price * 100), // Convert to cents
+                    currency: 'USD'
+                }
+            }));
+            
+            // In a real application, you would send this data to your server
+            // Your server would then create a checkout using Square's API
+            // and return the checkout URL
+            
+            // For demonstration, we'll show how this would typically work
+            console.log('Sending to server:', { lineItems });
+            
+            // Simulate server response with a checkout URL
+            // In a real app, this would be generated by your backend
+            const checkoutUrl = 'https://checkout.square.site/your-checkout-id';
+            
+            // Redirect to Square Checkout
+            // In a real app, uncomment this:
+            // window.location.href = checkoutUrl;
+            
+            // For demo purposes, show an alert instead
+            alert('In a real implementation, you would be redirected to Square Checkout now.\n\nThe line items that would be sent to your server are:\n' + 
+                  JSON.stringify(lineItems, null, 2));
+        }
+    </script>
 </body>
 </html>
