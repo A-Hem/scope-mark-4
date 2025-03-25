@@ -1,0 +1,45 @@
+title: "Leupold Mark 4 CQ/T | Professional-Grade Tactical Scope"
+description: "The Leupold Mark 4 CQ/T 1.3x 14mm - The trusted choice of SWAT, military, and law enforcement professionals. Purpose-built for close-quarters tactical operations with superior optical clarity and battle-proven reliability."
+baseurl: ""
+url: "justdrops.xyz"
+
+# SEO settings
+author: Tactical Optics Specialist
+keywords: Leupold Mark 4 CQ/T, tactical scope, SWAT scope, law enforcement optics, CQB optic, AR-15 scope, military grade scope
+lang: en_US
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Social media
+twitter_username: justdropsxyz
+
+# Collections
+collections:
+  features:
+    output: true
+  testimonials:
+    output: false
+
+# Site settings
+email: your-email@example.com
+github_username: yourusername
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+  - team-notes.txt
+
+# RSS Feed settings
+feed:
+  path: feed.xml
+  template: feed.xml
+  limit: 10 

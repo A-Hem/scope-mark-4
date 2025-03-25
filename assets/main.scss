@@ -1,0 +1,58 @@
+@import "minima";
+
+:root {
+  --tactical-black: #1a1a1a;
+  --tactical-gray: #333333;
+  --accent-red: #bf0000;
+  --text-light: #f5f5f5;
+}
+
+body {
+  background-color: var(--tactical-black);
+  color: var(--text-light);
+  font-family: 'Industry', -apple-system, system-ui, sans-serif;
+}
+
+.site-header {
+  background: var(--tactical-gray);
+  border-bottom: 2px solid var(--accent-red);
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--accent-red);
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: darken(var(--accent-red), 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.specs-section {
+  background: var(--tactical-gray);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.testimonial {
+  border-left: 4px solid var(--accent-red);
+  padding-left: 1rem;
+  margin: 2rem 0;
+  font-style: italic;
+}
+
+// Responsive design
+@media screen and (max-width: 800px) 
