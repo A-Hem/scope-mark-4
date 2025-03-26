@@ -1,32 +1,51 @@
 title: "Leupold Mark 4 CQ/T | Professional-Grade Tactical Scope"
 description: "The Leupold Mark 4 CQ/T 1.3x 14mm - The trusted choice of SWAT, military, and law enforcement professionals. Purpose-built for close-quarters tactical operations with superior optical clarity and battle-proven reliability."
 baseurl: ""
-url: "justdrops.xyz"
+url: "https://justdrops.xyz"
 
 # SEO settings
 author: Tactical Optics Specialist
 keywords: Leupold Mark 4 CQ/T, tactical scope, SWAT scope, law enforcement optics, CQB optic, AR-15 scope, military grade scope
 lang: en_US
+permalink: /:year/:month/:day/:title/
+paginate: 10
+paginate_path: "/page:num/"
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-admin
+
+# SCSS settings
+sass:
+  style: compressed
+  sass_dir: _sass
+  style_dir: assets/css
+  include_paths:
+    - _sass
+    - assets/css
 
 # Social media
 twitter_username: justdropsxyz
+social:
+  twitter: https://twitter.com/justdropsxyz
 
 # Collections
 collections:
   features:
     output: true
+    permalink: /features/:path/
   testimonials:
     output: false
+    permalink: /testimonials/:path/
 
 # Site settings
-email: your-email@example.com
-github_username: yourusername
+email: info@justdrops.xyz
+github_username: justdropsxyz
 
 # Exclude from processing
 exclude:
@@ -37,9 +56,29 @@ exclude:
   - .git
   - README.md
   - team-notes.txt
+  - .github
 
 # RSS Feed settings
 feed:
   path: feed.xml
   template: feed.xml
-  limit: 10 
+  limit: 10
+
+# Performance settings
+incremental: true
+future: false
+
+# Blog settings
+blog:
+  title: "Tactical Optics Blog"
+  description: "Expert insights on tactical optics, maintenance, and usage"
+  posts_per_page: 6
+  layout: "post"
+  permalink: "/blog/:year/:month/:day/:title/"
+  categories: true
+  tags: true
+  author: true
+  date: true
+  comments: false
+  social_sharing: true
+
